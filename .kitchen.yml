@@ -3,14 +3,31 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
 
 platforms:
+  - name: centos-6.5
+  - name: centos-7.0
   - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: ubuntu-14.04
+  - name: macosx-10.10
+    driver:
+      provider: vmware_fusion
+      box: macosx-10.10
+      box_url: http://n7-code-repo-vip.disney.private/artifacts/diw-devops/bento/macosx-10.10.vmware.box
+  - name: winsrv-2012R2
+    driver:
+      provider: vmware_fusion
+      box: winsrv-2012R2
+      box_url: http://n7-code-repo-vip.disney.private/artifacts/diw-devops/bento/windows_2012_r2_vmware.box
 
 suites:
   - name: default
     run_list:
       - recipe[groovy::default]
     attributes:
+      java:
+        windows:
+          url: 'http://n7-code-repo-vip.disney.private/artifacts/diw-devops/java/windows/jdk/jdk-7u80-windows-x64.exe'
+          checksum: '4a0f77910f1373f526d6732896b870bc96f2a83e32d8390549331b602482f4ee'
+          package_name: 'Java SE Development Kit 7 Update 80 (64-bit)'
