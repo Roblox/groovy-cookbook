@@ -5,6 +5,7 @@
 Platform:
 
 CentOS
+Mac OSX
 
 The following cookbooks are dependencies:
 
