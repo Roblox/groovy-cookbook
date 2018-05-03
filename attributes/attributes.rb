@@ -6,7 +6,8 @@
 # 
 # All rights reserved - Do Not Redistribute
 #
-default[:groovy][:version]    = '2.4.0'
-default[:groovy][:home]       = '/usr/local/groovy'
-default[:groovy][:url]        = 'http://dl.bintray.com/groovy/maven/groovy-binary-2.4.0.zip'
-default[:groovy][:checksum]   = '69a01bcce68295b185036c61d5a7dde27078ab1c3f7da488e9c1ef9ad0ca60f1'
+
+default['groovy']['home']     = platform_family?('windows') ? 'c:\groovy' : '/usr/local/bin/groovy'
+default['groovy']['version']  = '2.4.6'
+default['groovy']['url']      = 'http://n7-code-repo-vip.disney.private/artifacts/diw-devops/software/groovy/apache-groovy-binary-2.4.6.zip'
+default['groovy']['checksum'] = '9b3fb5b51bc21342bba13f090a88ad6d89b20c4a7a166dd50df2ac763c278768'
